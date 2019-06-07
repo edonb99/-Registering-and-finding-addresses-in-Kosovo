@@ -2,7 +2,9 @@ DROP DATABASE IF EXISTS Addresses;
 CREATE DATABASE Addresses;
 USE Addresses;
 
-CREATE TABLE Adresat
+CREATE TABLE Users
 (
-	
+	id INTEGER(11),
+    name VARCHAR(255),
+    PRIMARY KEY(id)
 );

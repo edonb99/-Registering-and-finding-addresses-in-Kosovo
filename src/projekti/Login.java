@@ -1,11 +1,19 @@
 package projekti;
 
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.PreparedStatement;
+
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -22,8 +30,10 @@ import javafx.scene.shape.VLineTo;
 import javafx.stage.Stage;
 
 public class Login extends Application {
+	private java.sql.Connection dbConnection;
 
 	public void start(Stage primaryStage) {
+		setDBConnection();
 
 		BorderPane border = new BorderPane();
 
@@ -126,7 +136,38 @@ public class Login extends Application {
 		primaryStage.setScene(scene);
 		// primaryStage.setResizable(false);
 		primaryStage.show();
+		
+		String query = "INSERT INTO Users VALUES(5, 'Edon')";
+		try
+		{
+			PreparedStatement pstmt = (PreparedStatement) dbConnection.prepareStatement(query);
+			pstmt.execute();
+		}
+		catch(SQLException e)
+		{
+			e.getMessage();
+		}
 
+
+	}
+	
+	private void setDBConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			dbConnection = DriverManager.getConnection("jdbc:mysql://localhost/Addresses", "root","1234");	
+		}
+		catch(Exception e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Database problem!");
+			alert.setHeaderText(null);
+			alert.setContentText("Cannot connect to database!");
+			
+			alert.showAndWait();
+			
+			System.exit(1);
+		}
+		
 	}
 
 	public static void main(String[] args) {
