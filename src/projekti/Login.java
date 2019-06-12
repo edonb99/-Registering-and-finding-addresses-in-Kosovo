@@ -1,5 +1,6 @@
 package projekti;
 
+<<<<<<< HEAD
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -168,10 +169,11 @@ public class Login extends Application {
 			System.exit(1);
 		}
 		
+=======
+public class Login {
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World!");
+>>>>>>> parent of 71b1503... login
 	}
-
-	public static void main(String[] args) {
-		Application.launch(args);
-	}
-
 }
