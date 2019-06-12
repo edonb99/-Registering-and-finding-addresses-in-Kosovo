@@ -99,6 +99,17 @@ public class Home extends Application {
         	obj.open();
         	mainStage.setScene(Login.login_scene);
         });
+menu_pane.setOnKeyPressed(ev->{
+			if(ev.isControlDown() && ev.getCode() == KeyCode.L) {
+				Login obj = new Login();
+	        	obj.open();
+	        	mainStage.setScene(Login.login_scene);
+	        				
+			}
+			else if(ev.isControlDown() && ev.getCode() == KeyCode.H) {
+				new Help().open();
+			}
+		});
 		
 		help_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		help_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
