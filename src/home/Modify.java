@@ -85,7 +85,7 @@ public class Modify
 		Stage primaryStage = new Stage();
 		HBox top_pane = new HBox();
 		ImageView back_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/back.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/back.png"));
 
 		back_image.setFitHeight(24);
 		back_image.setFitWidth(24);
@@ -96,6 +96,10 @@ public class Modify
 		top_pane.getChildren().add(back_button);
 		top_pane.setStyle("-fx-background-color: turquoise;");
 		GridPane formPane = new GridPane();
+		
+		back_button.setOnAction(e -> {
+			primaryStage.close();
+		});
 
 		formPane.addRow(0, new Label("idRruget: "), idRrugetTxt);
 		formPane.addRow(1, new Label("Komuna: "), KomunaTxt);

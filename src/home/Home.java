@@ -61,7 +61,7 @@ public class Home extends Application {
 		HBox logo_pane = new HBox(10);
 		GridPane menu_pane = new GridPane();
 		ImageView logo = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/logo.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/logo.png"));
 
 		logo.setFitHeight(45);
 		logo.setFitWidth(45);
@@ -73,13 +73,13 @@ public class Home extends Application {
 		logo_pane.setPrefSize(250, 75);
 
 		ImageView home_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/home1.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/home1.png"));
 		ImageView modify_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/edit1.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/edit1.png"));
 		ImageView login_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/login.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/login.png"));
 		ImageView help_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/info1.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/info1.png"));
 		Button home_button = I18N.getButton("home_button");
 
 		Button login_button = I18N.getButton("login_button");
@@ -263,9 +263,9 @@ public class Home extends Application {
 
 		HBox language_pane = new HBox(5);
 		ImageView uk_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/united-kingdom.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/united-kingdom.png"));
 		ImageView ks_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/kosovo.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/kosovo.png"));
 		uk_flag.setFitHeight(24);
 		uk_flag.setFitWidth(24);
 		ks_flag.setFitHeight(24);
@@ -305,7 +305,7 @@ public class Home extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.sizeToScene();
 		primaryStage.getIcons().add(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/logo.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/logo.png"));
 		primaryStage.show();
 
 	}

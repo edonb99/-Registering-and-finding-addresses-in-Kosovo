@@ -43,7 +43,7 @@ public class Login {
 	public void open() {
 		GridPane top_left_pane = new GridPane();
 		ImageView menu_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/menu.png"));
+				new Image("file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/menu.png"));
 
 		menu_image.setFitHeight(24);
 		menu_image.setFitWidth(24);
@@ -51,7 +51,7 @@ public class Login {
 
 		MenuItem item1 = I18N.getMenu("item1"); /* Home */
 		ImageView home_image2 = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/homecolorful.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/homecolorful.png"));
 		home_image2.setFitHeight(24);
 		home_image2.setFitWidth(24);
 		item1.setGraphic(home_image2);
@@ -66,7 +66,7 @@ public class Login {
 
 		MenuItem item3 = I18N.getMenu("item3"); /* Help */
 		ImageView help_image2 = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/infocolorful.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/infocolorful.png"));
 		item3.setGraphic(help_image2);
 		item3.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
 		item3.setStyle(
@@ -106,7 +106,7 @@ public class Login {
 
 		StackPane center_left_pane = new StackPane();
 		ImageView admin_image = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/admin1.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/admin1.png"));
 		center_left_pane.setMinWidth(350);
 		center_left_pane.setStyle(
 				"-fx-background-color:white;-fx-border-color:transparent turquoise transparent transparent;-fx-border-width:2;");
@@ -121,11 +121,11 @@ public class Login {
 		center_right_pane.setMinHeight(500);
 		center_right_pane.setMinWidth(500);
 		ImageView username_image = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/usericon.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/usericon.png"));
 		username_image.setFitHeight(24);
 		username_image.setFitWidth(24);
 		ImageView pass_image = new ImageView(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/password.png");
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/password.png");
 		pass_image.setFitHeight(24);
 		pass_image.setFitWidth(24);
 		username_text.setText(I18N.getLabel("username_text").getText());
@@ -160,7 +160,10 @@ public class Login {
 		user_login_button.setPadding(new Insets(5, 15, 5, 15));
 		user_login_button.setOnAction(e -> {
 			loginUser();
+			
 		});
+		
+		
 //		Hyperlink link = new Hyperlink();
 //		link.setText("Forgot password?");
 //		link.setStyle("-fx-text-fill: turquoise;-fx-font-size: 14;");
@@ -182,13 +185,20 @@ public class Login {
 		login_center_pane.getChildren().addAll(center_left_pane, center_right_pane);
 		HBox language_pane = new HBox(5);
 		ImageView uk_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/united-kingdom.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/united-kingdom.png"));
 		ImageView ks_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/kosovo.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/kosovo.png"));
 		uk_flag.setFitHeight(24);
 		uk_flag.setFitWidth(24);
 		ks_flag.setFitHeight(24);
 		ks_flag.setFitWidth(24);
+		
+		login_center_pane.setOnKeyPressed(ev-> {
+			if (ev.getCode() == KeyCode.ENTER) {
+				loginUser();
+
+			}
+		});
 
 		Button english_button = new Button("English");
 		english_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));
@@ -233,7 +243,7 @@ public class Login {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Logged in");
 				alert.setHeaderText(null);
-				alert.setContentText("You are log in!");
+				alert.setContentText("You are logged in!");
 				x = true;
 
 				alert.showAndWait();

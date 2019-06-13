@@ -2,6 +2,9 @@ package home;
 
 import java.util.Locale;
 
+import help.HelpAbout;
+import help.HelpEdit;
+import help.HelpLogin;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -30,15 +33,15 @@ public class Help {
 	public void open() {
 		Stage primaryStage = new Stage();
 		GridPane top_left_pane = new GridPane();
-		ImageView menu_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/menu.png"));
+		ImageView menu_image = new ImageView(new Image(
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/menu.png"));
 		menu_image.setFitHeight(24);
 		menu_image.setFitWidth(24);
 		MenuButton menu_button = new MenuButton();
 
 		MenuItem item1 = I18N.getMenu("item1");
 		ImageView home_image2 = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/homecolorful.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/homecolorful.png"));
 		home_image2.setFitHeight(24);
 		home_image2.setFitWidth(24);
 		item1.setGraphic(home_image2);
@@ -50,7 +53,7 @@ public class Help {
 			primaryStage.setScene(Home.home_scene);
 			primaryStage.show();
 		});
-		
+
 		menu_button.setOnKeyPressed(e -> {
 			if (e.isControlDown() && e.getCode() == KeyCode.L) {
 				Login obj = new Login();
@@ -59,8 +62,7 @@ public class Help {
 
 			} else if (e.isControlDown() && e.getCode() == KeyCode.H) {
 				new Help().open();
-			}
-			else if (e.isControlDown() && e.getCode() == KeyCode.O) {
+			} else if (e.isControlDown() && e.getCode() == KeyCode.O) {
 				primaryStage.setScene(Home.home_scene);
 				primaryStage.show();
 			}
@@ -68,7 +70,7 @@ public class Help {
 
 		MenuItem item3 = I18N.getMenu("item3");
 		ImageView help_image2 = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/infocolorful.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/infocolorful.png"));
 		item3.setGraphic(help_image2);
 		item3.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
 		item3.setStyle(
@@ -98,7 +100,7 @@ public class Help {
 
 		HBox center_bottom_pane = new HBox(25);
 		ImageView homeinfo_image = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/homecolorful.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/homecolorful.png"));
 
 		Button homeinfo_button = new Button();
 		homeinfo_button.setGraphic(homeinfo_image);
@@ -106,8 +108,12 @@ public class Help {
 		homeinfo_button.setStyle(
 				"-fx-text-fill:white; -fx-border-color:#40E0D0;-fx-border-width:2.5; -fx-background-color: transparent;");
 
-		ImageView modifyinfo_image = new ImageView(
-				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/edit.png"));
+		homeinfo_button.setOnAction(e -> {
+			HelpAbout.about();
+		});
+
+		ImageView modifyinfo_image = new ImageView(new Image(
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/edit.png"));
 
 		Button modifyinfo_button = new Button();
 		modifyinfo_button.setGraphic(modifyinfo_image);
@@ -115,14 +121,23 @@ public class Help {
 		modifyinfo_button.setStyle(
 				"-fx-text-fill:white; -fx-border-color:#40E0D0;-fx-border-width:2.5; -fx-background-color: transparent;");
 
+		modifyinfo_button.setOnAction(e -> {
+			HelpEdit.about();
+		});
+		
 		ImageView logininfo_image = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/usericon.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/usericon.png"));
 
 		Button logininfo_button = new Button();
 		logininfo_button.setGraphic(logininfo_image);
 		logininfo_button.setPadding(new Insets(2.5, 2.5, 2.5, 2.5));
 		logininfo_button.setStyle(
 				"-fx-text-fill:white; -fx-border-color:#40E0D0;-fx-border-width:2.5; -fx-background-color: transparent;");
+		
+		logininfo_button.setOnAction(e -> {
+			HelpLogin.about();
+		});
+		
 		center_bottom_pane.setAlignment(Pos.CENTER);
 		center_bottom_pane.getChildren().addAll(homeinfo_button, modifyinfo_button, logininfo_button);
 		center_bottom_pane.setMinHeight(449);
@@ -138,9 +153,9 @@ public class Help {
 
 		HBox language_pane = new HBox(5);
 		ImageView uk_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/united-kingdom.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/united-kingdom.png"));
 		ImageView ks_flag = new ImageView(new Image(
-				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/kosovo.png"));
+				"file:///C:/Users/DataProgNet/git/-Registering-and-finding-addresses-in-Kosovo/Images/kosovo.png"));
 		uk_flag.setFitHeight(24);
 		uk_flag.setFitWidth(24);
 		ks_flag.setFitHeight(24);
