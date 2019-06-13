@@ -87,7 +87,7 @@ public class Login {
 		top_left_pane.setMaxHeight(10);
 
 		StackPane top_middle_pane = new StackPane();
-		Label login_label = new Label("Login");
+		Label login_label = I18N.getLabel("login_label");
 		login_label.setStyle("-fx-text-fill: white");
 		login_label.setFont(Font.font("Serif", FontWeight.BOLD, FontPosture.REGULAR, 20));
 		top_middle_pane.setStyle("-fx-background-color:#40E0D0");
@@ -118,7 +118,7 @@ public class Login {
 				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/password.png");
 		pass_image.setFitHeight(24);
 		pass_image.setFitWidth(24);
-		username_text.setText("Username");
+		username_text.setText(I18N.getLabel("username_text").getText());
 
 		username_text.setStyle(
 				"-fx-border-color: transparent transparent turquoise transparent ; -fx-background-color:transparent;-fx-border-width: 2px ;-fx-text-fill: grey;");
@@ -143,7 +143,7 @@ public class Login {
 //		CheckBox remember_me = new CheckBox("Remember me");
 //		remember_me.setStyle("-fx-text-fill: turquoise;-fx-font-size: 14;");
 
-		Button user_login_button = new Button("Login");
+		Button user_login_button = I18N.getButton("user_login_button");
 		user_login_button.setFont(Font.font("Serif", FontWeight.BOLD, FontPosture.REGULAR, 16));
 		user_login_button
 				.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: turquoise;");

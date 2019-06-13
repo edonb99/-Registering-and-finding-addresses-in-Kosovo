@@ -2,6 +2,7 @@ package home;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.util.Locale;
 
 import javafx.application.Application;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -17,8 +18,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -34,33 +33,30 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
 public class Home extends Application {
 	public static Scene home_scene;
-	 private Stage mainStage;
-	 private java.sql.Connection dbConnection;
+	private Stage mainStage;
+	private java.sql.Connection dbConnection;
 
-	 private TableView<Adresat> table = new TableView<Adresat>();
-	 private final ObservableList<Adresat> data = FXCollections.observableArrayList();
+	private TableView<Adresat> table = new TableView<Adresat>();
+	private final ObservableList<Adresat> data = FXCollections.observableArrayList();
 
-	 //
+	//
 
-	 private void setConnection()
-	 {
-	 try
-	 {
-	 Class.forName("com.mysql.jdbc.Driver");
-	 dbConnection = DriverManager.getConnection("jdbc:mysql://localhost/knk?useSSL=false",
-	 "root", "1234");
-	 } catch (Exception ex)
-	 {
-	 ex.printStackTrace();
-	 }
-	 }
-	 
+	private void setConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			dbConnection = DriverManager.getConnection("jdbc:mysql://localhost/knk?useSSL=false", "root", "1234");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
 	@Override
 	public void start(Stage primaryStage) {
 		setConnection();
-		mainStage=primaryStage;
+		mainStage = primaryStage;
 		HBox logo_pane = new HBox(10);
 		GridPane menu_pane = new GridPane();
 		ImageView logo = new ImageView(
@@ -68,7 +64,7 @@ public class Home extends Application {
 
 		logo.setFitHeight(45);
 		logo.setFitWidth(45);
-		Label logo_label = new Label("Address Management \n \t System");
+		Label logo_label = I18N.getLabel("logo_label");
 		logo_label.setStyle("-fx-text-fill: white");
 		logo_label.setFont(Font.font("Serif", FontWeight.BOLD, FontPosture.ITALIC, 20));
 		logo_pane.getChildren().addAll(logo, logo_label);
@@ -83,29 +79,29 @@ public class Home extends Application {
 				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/login.png"));
 		ImageView help_image = new ImageView(
 				new Image("file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/info1.png"));
-		Button home_button = new Button("Home    ");
+		Button home_button = I18N.getButton("home_button");
 
-
-		Button login_button = new Button("Login    ");
-		Button help_button = new Button("Help      ");
+		Button login_button = I18N.getButton("login_button");
+		
+		Button help_button = I18N.getButton("help_button");
+		
 		home_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		home_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
 
-
 		login_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		login_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
-        login_button.setOnAction(e->{
-        	Login obj = new Login();
-        	obj.open();
-        	mainStage.setScene(Login.login_scene);
-        });
-		
+		login_button.setOnAction(e -> {
+			Login obj = new Login();
+			obj.open();
+			mainStage.setScene(Login.login_scene);
+		});
+
 		help_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		help_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
-		help_button.setOnAction(e->{
-		  new Help().open();
+		help_button.setOnAction(e -> {
+			new Help().open();
 		});
-		
+
 		menu_pane.setAlignment(Pos.TOP_CENTER);
 		menu_pane.setPadding(new Insets(15.5, 0, 0.5, 0.5));
 		menu_pane.setHgap(4.5);
@@ -126,7 +122,7 @@ public class Home extends Application {
 
 		Pane user_pane = new Pane();
 		user_pane.setMinHeight(570);
-		//*****************************************
+		// *****************************************
 		Group group = new Group();
 //		stage.setTitle("Table View Sample");
 
@@ -135,64 +131,59 @@ public class Home extends Application {
 
 		table.setEditable(true);
 
-
-
-		TableColumn rajonicol = new TableColumn("Rajoni");
+		TableColumn rajonicol = I18N.getColumn("rajonicol");
 		rajonicol.setMinWidth(100);
 		rajonicol.setCellValueFactory(new PropertyValueFactory<>("Rajoni"));
 
-		TableColumn komunacol = new TableColumn("Komuna");
+		TableColumn komunacol = I18N.getColumn("komunacol");
 		komunacol.setMinWidth(70);
 		komunacol.setCellValueFactory(new PropertyValueFactory<>("Komuna"));
 
-		TableColumn lagjjacol = new TableColumn("Lagjja");
+		TableColumn lagjjacol = I18N.getColumn("lagjjacol");
 		lagjjacol.setMinWidth(100);
 		lagjjacol.setCellValueFactory(new PropertyValueFactory<>("Lagjja"));
 
-		TableColumn rrugacol = new TableColumn("Rruga");
+		TableColumn rrugacol = I18N.getColumn("rrugacol");
 		rrugacol.setMinWidth(150);
 		rrugacol.setCellValueFactory(new PropertyValueFactory<>("Rruga"));
 
-		TableColumn objekticol = new TableColumn("Objekti");
+		TableColumn objekticol = I18N.getColumn("objekticol");
 		objekticol.setMinWidth(15);
 		objekticol.setCellValueFactory(new PropertyValueFactory<>("Objekti"));
 
-		TableColumn latitudecol = new TableColumn("Latitude");
+		TableColumn latitudecol = I18N.getColumn("latitudecol");
 		latitudecol.setMinWidth(50);
 		latitudecol.setCellValueFactory(new PropertyValueFactory<>("Latitude"));
 
-		TableColumn longitudecol = new TableColumn("Longitude");
-		longitudecol.setMinWidth(50 );
+		TableColumn longitudecol = I18N.getColumn("longitudecol");
+		longitudecol.setMinWidth(50);
 		longitudecol.setCellValueFactory(new PropertyValueFactory<>("Longitude"));
 
-		try
-		{
+		try {
 
-		String query = "select  Ra.EmriRajonit as Rajoni, K.EmriKomunes as Komuna, Lagjja, R.EmriRruges as Rruga, O.NumriHyrjes as"
-		+ " Objekti, adresat.Latitude as Latitude, adresat.Longitude as Longitude from rajonet Ra, komunat K, rruget R, adresat, objektet O "
-		+ " where adresat.idKomuna=K.idKomunat and adresat.idRruges=R.idRruget and adresat.idRajoni=Ra.idRajoni and adresat.idObjektit=O.idObjekti ";
+			String query = "select  Ra.EmriRajonit as Rajoni, K.EmriKomunes as Komuna, Lagjja, R.EmriRruges as Rruga, O.NumriHyrjes as"
+					+ " Objekti, adresat.Latitude as Latitude, adresat.Longitude as Longitude from rajonet Ra, komunat K, rruget R, adresat, objektet O "
+					+ " where adresat.idKomuna=K.idKomunat and adresat.idRruges=R.idRruget and adresat.idRajoni=Ra.idRajoni and adresat.idObjektit=O.idObjekti ";
 
-		java.sql.PreparedStatement pst = dbConnection.prepareStatement(query);
-		ResultSet rs = pst.executeQuery();
+			java.sql.PreparedStatement pst = dbConnection.prepareStatement(query);
+			ResultSet rs = pst.executeQuery();
 
-		while (rs.next())
-		{
-		data.add(new Adresat( rs.getString("Rajoni"), rs.getString("Komuna"),
-		rs.getString("Lagjja"), rs.getString("Rruga"), rs.getInt("Objekti"), rs.getDouble("Latitude"),
-		rs.getDouble("Longitude")));
-		table.setItems(data);
-		}
-		pst.close();
-		rs.close();
+			while (rs.next()) {
+				data.add(new Adresat(rs.getString("Rajoni"), rs.getString("Komuna"), rs.getString("Lagjja"),
+						rs.getString("Rruga"), rs.getInt("Objekti"), rs.getDouble("Latitude"),
+						rs.getDouble("Longitude")));
+				table.setItems(data);
+			}
+			pst.close();
+			rs.close();
 
-		} catch (Exception ex)
-		{
-		System.err.println(ex);
+		} catch (Exception ex) {
+			System.err.println(ex);
 		}
 
 		FilteredList<Adresat> flAdresat = new FilteredList(data, p -> true);// Pass the data to a filtered list
 		table.setItems(flAdresat);// Set the table's items using the filtered list
-		table.getColumns().addAll( rajonicol, komunacol, lagjjacol, rrugacol, objekticol, latitudecol, longitudecol);
+		table.getColumns().addAll(rajonicol, komunacol, lagjjacol, rrugacol, objekticol, latitudecol, longitudecol);
 
 		// Adding ChoiceBox and TextField here!
 		ComboBox<String> comboBox = new ComboBox();
@@ -201,43 +192,43 @@ public class Home extends Application {
 
 		TextField textField = new TextField();
 		textField.setPromptText("Search here!");
-		textField.setOnKeyReleased(keyEvent ->
-		{
-		switch (comboBox.getValue())// Switch on choiceBox value
-		{
-		case "Rajoni":
-		flAdresat.setPredicate(
-		p -> p.getRajoni().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
-		// table
-		// by
-		// first
-		// name
-		break;
-		case "Komuna":
-		flAdresat.setPredicate(
-		p -> p.getKomuna().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
-		// table
-		// by
-		// first
-		// name
-		break;
-		case "Rruga":
-		flAdresat.setPredicate(
-		p -> p.getRruga().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
-		// table by
-		// first
-		// name
-		break;
-		}
+		textField.setOnKeyReleased(keyEvent -> {
+			switch (comboBox.getValue())// Switch on choiceBox value
+			{
+			case "Rajoni":
+				flAdresat.setPredicate(
+						p -> p.getRajoni().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
+				// table
+				// by
+				// first
+				// name
+				break;
+			case "Komuna":
+				flAdresat.setPredicate(
+						p -> p.getKomuna().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
+				// table
+				// by
+				// first
+				// name
+				break;
+			case "Rruga":
+				flAdresat.setPredicate(
+						p -> p.getRruga().toLowerCase().contains(textField.getText().toLowerCase().trim()));// filter
+				// table by
+				// first
+				// name
+				break;
+			}
 		});
 
-		comboBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
-		{// reset table and textfield when new choice is selected
-		if (newVal != null)
-		{
-		textField.setText("");
-		flAdresat.setPredicate(p->true);// This is same as saying flPerson.setPredicate(p->true);
-		}
+		comboBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {// reset table and
+																									// textfield when
+																									// new choice is
+																									// selected
+			if (newVal != null) {
+				textField.setText("");
+				flAdresat.setPredicate(p -> true);// This is same as saying flPerson.setPredicate(p->true);
+			}
 		});
 		HBox hBox = new HBox(comboBox, textField);// Add choiceBox and textField to hBox
 		hBox.setAlignment(Pos.CENTER);// Center HBox
@@ -248,7 +239,7 @@ public class Home extends Application {
 
 		ScrollPane scp = new ScrollPane();
 		scp.setContent(vbox);
-		scp.setPrefSize(603,570);
+		scp.setPrefSize(603, 570);
 
 		scp.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 		scp.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
@@ -272,10 +263,20 @@ public class Home extends Application {
 		english_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));
 		english_button
 				.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
+		english_button.setOnAction(e -> {
+			I18N.setLocale(new Locale("en"));
+		});
+		
+		
+		
 		Button albanian_button = new Button("Shqip");
 		albanian_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));
 		albanian_button
 				.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
+		albanian_button.setOnAction(e -> {
+			I18N.setLocale(new Locale("al"));
+		});
+		
 		language_pane.setAlignment(Pos.BOTTOM_RIGHT);
 		language_pane.setMaxHeight(20);
 		language_pane.setMinWidth(600);
@@ -288,8 +289,8 @@ public class Home extends Application {
 		HBox main_pane = new HBox();
 		main_pane.getChildren().addAll(left_pane, right_pane);
 
-		 home_scene = new Scene(main_pane,850,594);
-		
+		home_scene = new Scene(main_pane, 850, 594);
+
 		primaryStage.setScene(home_scene);
 		primaryStage.setResizable(false);
 		primaryStage.sizeToScene();
@@ -298,77 +299,67 @@ public class Home extends Application {
 		primaryStage.show();
 
 	}
-	
+
 	public static void main(String[] args) {
 		Application.launch(args);
 
 	}
-	public static class Adresat
-	{
+
+	public static class Adresat {
 //		private final SimpleIntegerProperty ID;
-	private final SimpleStringProperty Rajoni;
-	private final SimpleStringProperty Komuna;
-	private final SimpleStringProperty Lagjja;
-	private final SimpleStringProperty Rruga;
-	private final SimpleIntegerProperty Objekti;
-	private final SimpleDoubleProperty Latitude;
-	private final SimpleDoubleProperty Longitude;
+		private final SimpleStringProperty Rajoni;
+		private final SimpleStringProperty Komuna;
+		private final SimpleStringProperty Lagjja;
+		private final SimpleStringProperty Rruga;
+		private final SimpleIntegerProperty Objekti;
+		private final SimpleDoubleProperty Latitude;
+		private final SimpleDoubleProperty Longitude;
 
-	private Adresat( String Rajoni, String Komuna, String Lagjja, String Rruga, int Objekti, double Latitude,
-	double Longitude)
-	{
+		private Adresat(String Rajoni, String Komuna, String Lagjja, String Rruga, int Objekti, double Latitude,
+				double Longitude) {
 //		this.ID = new SimpleIntegerProperty(ID);
-	this.Rajoni = new SimpleStringProperty(Rajoni);
-	this.Komuna = new SimpleStringProperty(Komuna);
-	this.Lagjja = new SimpleStringProperty(Lagjja);
-	this.Rruga = new SimpleStringProperty(Rruga);
-	this.Objekti = new SimpleIntegerProperty(Objekti);
-	this.Latitude = new SimpleDoubleProperty(Latitude);
-	this.Longitude = new SimpleDoubleProperty(Longitude);
+			this.Rajoni = new SimpleStringProperty(Rajoni);
+			this.Komuna = new SimpleStringProperty(Komuna);
+			this.Lagjja = new SimpleStringProperty(Lagjja);
+			this.Rruga = new SimpleStringProperty(Rruga);
+			this.Objekti = new SimpleIntegerProperty(Objekti);
+			this.Latitude = new SimpleDoubleProperty(Latitude);
+			this.Longitude = new SimpleDoubleProperty(Longitude);
 
-	}
+		}
 
 //		public int getId()
 //		{
 //		return ID.get();
 //		}
 
-	public String getRajoni()
-	{
-	return Rajoni.get();
-	}
+		public String getRajoni() {
+			return Rajoni.get();
+		}
 
-	public String getKomuna()
-	{
-	return Komuna.get();
-	}
+		public String getKomuna() {
+			return Komuna.get();
+		}
 
-	public String getLagjja()
-	{
-	return Lagjja.get();
-	}
+		public String getLagjja() {
+			return Lagjja.get();
+		}
 
-	public String getRruga()
-	{
-	return Rruga.get();
-	}
+		public String getRruga() {
+			return Rruga.get();
+		}
 
-	public int getObjekti()
-	{
-	return Objekti.get();
-	}
+		public int getObjekti() {
+			return Objekti.get();
+		}
 
-	public double getLatitude()
-	{
-	return Latitude.get();
-	}
+		public double getLatitude() {
+			return Latitude.get();
+		}
 
-	public double getLongitude()
-	{
-	return Longitude.get();
+		public double getLongitude() {
+			return Longitude.get();
+		}
 	}
-	}
-	
-
 
 }

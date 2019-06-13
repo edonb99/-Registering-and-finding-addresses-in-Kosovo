@@ -66,7 +66,7 @@ MenuButton menu_button = new MenuButton();
 		
 
 		StackPane top_middle_pane = new StackPane();
-		Label help_label = new Label("Help");
+		Label help_label = I18N.getLabel("help_label");
 		help_label.setStyle("-fx-text-fill: white");
 		help_label.setFont(Font.font("Serif", FontWeight.BOLD, FontPosture.REGULAR, 20));
 		top_middle_pane.setStyle("-fx-background-color:#40E0D0");
@@ -107,7 +107,7 @@ MenuButton menu_button = new MenuButton();
 		center_bottom_pane.setMinHeight(449);
 		center_bottom_pane.setMinWidth(856);
 		StackPane center_top_pane = new StackPane();
-		Label help_text = new Label("You can ask for help about :");
+		Label help_text = I18N.getLabel("help_text");
 		help_text.setPadding(new Insets(8,8,8,8));
 		help_text.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		help_text.setStyle("-fx-text-fill:white; -fx-background-color:#40E0D0;");
