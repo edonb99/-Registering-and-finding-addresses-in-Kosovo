@@ -108,7 +108,7 @@ public class Modify
 		formPane.setHgap(10);
 		formPane.setVgap(10);
 
-		idRrugetTxt.setDisable(false);
+		idRrugetTxt.setDisable(true);
 
 // Buttons pane
 		HBox buttonsPane = new HBox(10);
@@ -173,12 +173,14 @@ public class Modify
 			TableRow<Adresat> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
+if(row.getItem() != null) {
 				idRrugetTxt.setText(String.valueOf(row.getItem().getIdRruget()));
 				KomunaTxt.setText(String.valueOf(row.getItem().getKomuna()));
 				FshatiTxt.setText(String.valueOf(row.getItem().getFshati()));
 				EmriRrugesTxt.setText(String.valueOf(row.getItem().getKodiRruges()));
 				KodiRrugesTxt.setText(String.valueOf(row.getItem().getEmriRruges()));
 				LlojiRrugesTxt.setText(String.valueOf(row.getItem().getLlojiRruges()));
+}
 			});
 			return row;
 
@@ -207,7 +209,7 @@ public class Modify
 		formPane1.setHgap(10);
 		formPane1.setVgap(10);
 
-		idObjektiTxt.setDisable(false);
+		idObjektiTxt.setDisable(true);
 
 // Buttons pane
 		HBox buttonsPane1 = new HBox(10);
@@ -262,10 +264,12 @@ public class Modify
 			TableRow<Objektet> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
+if(row.getItem() != null) {
 				idObjektiTxt.setText(String.valueOf(row.getItem().getIdObjekti()));
 				LlojiObjektitTxt.setText(String.valueOf(row.getItem().getLlojiObjektit()));
 				NumriKateveTxt.setText(String.valueOf(row.getItem().getNumriKateve()));
 				NumriHyrjesTxt.setText(String.valueOf(row.getItem().getNumriHyrjes()));
+}
 			});
 
 			return row;
@@ -300,7 +304,7 @@ public class Modify
 		formPane2.setHgap(10);
 		formPane2.setVgap(10);
 
-		idObjektiTxt.setDisable(false);
+		idObjektiTxt.setDisable(true);
 
 // Buttons pane
 		HBox buttonsPane2 = new HBox(10);
@@ -374,6 +378,7 @@ public class Modify
 			TableRow<Addresses> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
+if(row.getItem() != null) {
 				idAdresaTxt.setText(String.valueOf(row.getItem().getIdAdresa()));
 				idKomunaTxt.setText(String.valueOf(row.getItem().getIdKomuna()));
 				idRajoniTxt.setText(String.valueOf(row.getItem().getIdRajoni()));
@@ -382,6 +387,7 @@ public class Modify
 				idObjektitTxt.setText(String.valueOf(row.getItem().getIdObjektit()));
 				LatitudeTxt.setText(String.valueOf(row.getItem().getLatitude()));
 				LongitudeTxt.setText(String.valueOf(row.getItem().getLongitude()));
+}
 
 			});
 
