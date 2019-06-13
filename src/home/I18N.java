@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 
 
@@ -71,6 +72,15 @@ public class I18N {
 		return column;
 	}
 	/*********************************/
+	
+	/*******************************/
+	public static MenuItem getMenu(final String key, final Object...args) {
+		MenuItem menu = new MenuItem();
+		menu.textProperty().bind(createStringBinding(key, args));
+		return menu;
+	}
+	/*********************************/
+	
 	
 	
 	public static Label getLabel(String key, Object... args) {

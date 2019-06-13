@@ -3,6 +3,7 @@ package home;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Locale;
 
 import database.DBConnection;
 import javafx.geometry.HPos;
@@ -48,7 +49,7 @@ public class Login {
 		menu_image.setFitWidth(24);
 		MenuButton menu_button = new MenuButton();
 
-		MenuItem item1 = new MenuItem("Home              ");
+		MenuItem item1 = I18N.getMenu("item1");	/*Home              */
 		ImageView home_image2 = new ImageView(new Image(
 				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/homecolorful.png"));
 		home_image2.setFitHeight(24);
@@ -64,7 +65,7 @@ public class Login {
        });
 		
 
-		MenuItem item3 = new MenuItem("Help                ");
+		MenuItem item3 = I18N.getMenu("item3");	/*Help                */
 		ImageView help_image2 = new ImageView(new Image(
 				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/infocolorful.png"));
 		item3.setGraphic(help_image2);
@@ -184,10 +185,18 @@ public class Login {
 		english_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));
 		english_button
 				.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
+		english_button.setOnAction(e -> {
+			I18N.setLocale(new Locale("en"));
+		});
+
 		Button albanian_button = new Button("Shqip");
 		albanian_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));
 		albanian_button
 				.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
+		albanian_button.setOnAction(e -> {
+			I18N.setLocale(new Locale("al"));
+		});
+
 		language_pane.setAlignment(Pos.BOTTOM_RIGHT);
 		language_pane.setMaxHeight(20);
 		language_pane.setMinWidth(400);

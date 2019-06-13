@@ -25,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -96,7 +97,7 @@ public class Home extends Application {
         	obj.open();
         	mainStage.setScene(Login.login_scene);
         });
-menu_pane.setOnKeyPressed(ev->{
+        menu_pane.setOnKeyPressed(ev->{
 			if(ev.isControlDown() && ev.getCode() == KeyCode.L) {
 				Login obj = new Login();
 	        	obj.open();
