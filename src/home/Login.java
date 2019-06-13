@@ -74,6 +74,16 @@ public class Login {
 		item3.setOnAction(e -> {
 			new Help().open();
 		});
+		
+		menu_button.setOnKeyPressed(e -> {
+			if (e.isControlDown() && e.getCode() == KeyCode.H) {
+				new Help().open();
+			}
+			else if (e.isControlDown() && e.getCode() == KeyCode.O) {
+				primaryStage.setScene(Home.home_scene);
+				primaryStage.show();
+			}
+		});
 
 		menu_button.getItems().addAll(item1, item3);
 

@@ -2,8 +2,6 @@ package home;
 
 import java.util.Locale;
 
-import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -19,7 +16,6 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -53,6 +49,21 @@ public class Help {
 		item1.setOnAction(e -> {
 			primaryStage.setScene(Home.home_scene);
 			primaryStage.show();
+		});
+		
+		menu_button.setOnKeyPressed(e -> {
+			if (e.isControlDown() && e.getCode() == KeyCode.L) {
+				Login obj = new Login();
+				obj.open();
+				primaryStage.setScene(Login.login_scene);
+
+			} else if (e.isControlDown() && e.getCode() == KeyCode.H) {
+				new Help().open();
+			}
+			else if (e.isControlDown() && e.getCode() == KeyCode.O) {
+				primaryStage.setScene(Home.home_scene);
+				primaryStage.show();
+			}
 		});
 
 		MenuItem item3 = I18N.getMenu("item3");

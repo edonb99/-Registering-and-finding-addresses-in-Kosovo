@@ -26,7 +26,7 @@ public class Modify
 
 {
 	private Stage primaryStage = new Stage();
-	 public static Scene modify_scene ;
+	public static Scene modify_scene;
 
 // Text fields 1
 	private TextField idRrugetTxt = new TextField();
@@ -92,8 +92,7 @@ public class Modify
 		Button back_button = new Button();
 		back_button.setGraphic(back_image);
 		back_button.setPadding(new Insets(-1, -1, -1, -1));
-		back_button.setStyle(
-				"-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
+		back_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
 		top_pane.getChildren().add(back_button);
 		top_pane.setStyle("-fx-background-color: turquoise;");
 		GridPane formPane = new GridPane();
@@ -173,14 +172,14 @@ public class Modify
 			TableRow<Adresat> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
-if(row.getItem() != null) {
-				idRrugetTxt.setText(String.valueOf(row.getItem().getIdRruget()));
-				KomunaTxt.setText(String.valueOf(row.getItem().getKomuna()));
-				FshatiTxt.setText(String.valueOf(row.getItem().getFshati()));
-				EmriRrugesTxt.setText(String.valueOf(row.getItem().getKodiRruges()));
-				KodiRrugesTxt.setText(String.valueOf(row.getItem().getEmriRruges()));
-				LlojiRrugesTxt.setText(String.valueOf(row.getItem().getLlojiRruges()));
-}
+				if (row.getItem() != null) {
+					idRrugetTxt.setText(String.valueOf(row.getItem().getIdRruget()));
+					KomunaTxt.setText(String.valueOf(row.getItem().getKomuna()));
+					FshatiTxt.setText(String.valueOf(row.getItem().getFshati()));
+					EmriRrugesTxt.setText(String.valueOf(row.getItem().getKodiRruges()));
+					KodiRrugesTxt.setText(String.valueOf(row.getItem().getEmriRruges()));
+					LlojiRrugesTxt.setText(String.valueOf(row.getItem().getLlojiRruges()));
+				}
 			});
 			return row;
 
@@ -264,12 +263,12 @@ if(row.getItem() != null) {
 			TableRow<Objektet> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
-if(row.getItem() != null) {
-				idObjektiTxt.setText(String.valueOf(row.getItem().getIdObjekti()));
-				LlojiObjektitTxt.setText(String.valueOf(row.getItem().getLlojiObjektit()));
-				NumriKateveTxt.setText(String.valueOf(row.getItem().getNumriKateve()));
-				NumriHyrjesTxt.setText(String.valueOf(row.getItem().getNumriHyrjes()));
-}
+				if (row.getItem() != null) {
+					idObjektiTxt.setText(String.valueOf(row.getItem().getIdObjekti()));
+					LlojiObjektitTxt.setText(String.valueOf(row.getItem().getLlojiObjektit()));
+					NumriKateveTxt.setText(String.valueOf(row.getItem().getNumriKateve()));
+					NumriHyrjesTxt.setText(String.valueOf(row.getItem().getNumriHyrjes()));
+				}
 			});
 
 			return row;
@@ -378,16 +377,16 @@ if(row.getItem() != null) {
 			TableRow<Addresses> row = new TableRow<>();
 
 			row.setOnMouseClicked(e -> {
-if(row.getItem() != null) {
-				idAdresaTxt.setText(String.valueOf(row.getItem().getIdAdresa()));
-				idKomunaTxt.setText(String.valueOf(row.getItem().getIdKomuna()));
-				idRajoniTxt.setText(String.valueOf(row.getItem().getIdRajoni()));
-				LagjjaTxt.setText(String.valueOf(row.getItem().getLagjja()));
-				idRrugesTxt.setText(String.valueOf(row.getItem().getIdRruges()));
-				idObjektitTxt.setText(String.valueOf(row.getItem().getIdObjektit()));
-				LatitudeTxt.setText(String.valueOf(row.getItem().getLatitude()));
-				LongitudeTxt.setText(String.valueOf(row.getItem().getLongitude()));
-}
+				if (row.getItem() != null) {
+					idAdresaTxt.setText(String.valueOf(row.getItem().getIdAdresa()));
+					idKomunaTxt.setText(String.valueOf(row.getItem().getIdKomuna()));
+					idRajoniTxt.setText(String.valueOf(row.getItem().getIdRajoni()));
+					LagjjaTxt.setText(String.valueOf(row.getItem().getLagjja()));
+					idRrugesTxt.setText(String.valueOf(row.getItem().getIdRruges()));
+					idObjektitTxt.setText(String.valueOf(row.getItem().getIdObjektit()));
+					LatitudeTxt.setText(String.valueOf(row.getItem().getLatitude()));
+					LongitudeTxt.setText(String.valueOf(row.getItem().getLongitude()));
+				}
 
 			});
 
@@ -415,9 +414,9 @@ if(row.getItem() != null) {
 		scroll_pane.setPrefSize(1000, 700);
 		scroll_pane.setContent(mainPPPane);
 		VBox final_pane = new VBox();
-		final_pane.getChildren().addAll(top_pane,scroll_pane);
+		final_pane.getChildren().addAll(top_pane, scroll_pane);
 
-		 modify_scene = new Scene(final_pane, 860, 420);
+		modify_scene = new Scene(final_pane, 860, 420);
 
 		primaryStage.setTitle("Adresat");
 		primaryStage.setScene(modify_scene);
