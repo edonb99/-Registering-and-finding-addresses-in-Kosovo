@@ -49,7 +49,7 @@ public class Login {
 		menu_image.setFitWidth(24);
 		MenuButton menu_button = new MenuButton();
 
-		MenuItem item1 = I18N.getMenu("item1");	/*Home              */
+		MenuItem item1 = I18N.getMenu("item1"); /* Home */
 		ImageView home_image2 = new ImageView(new Image(
 				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/homecolorful.png"));
 		home_image2.setFitHeight(24);
@@ -59,13 +59,12 @@ public class Login {
 
 		item1.setStyle(
 				"-fx-text-fill:white; -fx-padding: 5 50 5 50;  -fx-border-color: transparent;-fx-background-color: turquoise;  -fx-text-fill: white;");
-       item1.setOnAction(e->{
-    	   primaryStage.setScene(Home.home_scene);
-    	   primaryStage.show();
-       });
-		
+		item1.setOnAction(e -> {
+			primaryStage.setScene(Home.home_scene);
+			primaryStage.show();
+		});
 
-		MenuItem item3 = I18N.getMenu("item3");	/*Help                */
+		MenuItem item3 = I18N.getMenu("item3"); /* Help */
 		ImageView help_image2 = new ImageView(new Image(
 				"file:///C:/Users/DataProgNet/eclipse-workspace/Address_Management_System/Images/infocolorful.png"));
 		item3.setGraphic(help_image2);
@@ -73,10 +72,10 @@ public class Login {
 		item3.setStyle(
 				"-fx-text-fill:white; -fx-padding: 5 50 5 50;  -fx-border-color: transparent;-fx-background-color: turquoise;  -fx-text-fill: white;");
 		item3.setOnAction(e -> {
-			  new Help().open();
+			new Help().open();
 		});
-		
-		menu_button.getItems().addAll(item1,  item3);
+
+		menu_button.getItems().addAll(item1, item3);
 
 		menu_button.setGraphic(menu_image);
 		menu_button.setPadding(new Insets(-1, -1, -1, -1));
@@ -228,7 +227,7 @@ public class Login {
 				x = true;
 
 				alert.showAndWait();
-				
+
 				new Modify().createStage();
 
 			} else {
@@ -238,8 +237,6 @@ public class Login {
 				alert.setContentText("Username or password not found!");
 
 				alert.showAndWait();
-				
-				
 
 			}
 

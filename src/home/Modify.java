@@ -304,7 +304,7 @@ if(row.getItem() != null) {
 		formPane2.setHgap(10);
 		formPane2.setVgap(10);
 
-		idObjektiTxt.setDisable(true);
+		idAdresaTxt.setDisable(true);
 
 // Buttons pane
 		HBox buttonsPane2 = new HBox(10);

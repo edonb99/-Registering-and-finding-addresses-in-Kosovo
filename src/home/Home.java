@@ -92,23 +92,21 @@ public class Home extends Application {
 		login_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		login_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
 
-        login_button.setOnAction(e->{
-        	Login obj = new Login();
-        	obj.open();
-        	mainStage.setScene(Login.login_scene);
-        });
-        menu_pane.setOnKeyPressed(ev->{
-			if(ev.isControlDown() && ev.getCode() == KeyCode.L) {
+		login_button.setOnAction(e -> {
+			Login obj = new Login();
+			obj.open();
+			mainStage.setScene(Login.login_scene);
+		});
+		menu_pane.setOnKeyPressed(ev -> {
+			if (ev.isControlDown() && ev.getCode() == KeyCode.L) {
 				Login obj = new Login();
-	        	obj.open();
-	        	mainStage.setScene(Login.login_scene);
+				obj.open();
+				mainStage.setScene(Login.login_scene);
 
-			}
-			else if(ev.isControlDown() && ev.getCode() == KeyCode.H) {
+			} else if (ev.isControlDown() && ev.getCode() == KeyCode.H) {
 				new Help().open();
 			}
 		});
-
 
 		help_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 18));
 		help_button.setStyle("-fx-text-fill:white; -fx-border-color: transparent; -fx-background-color: transparent;");
@@ -280,8 +278,6 @@ public class Home extends Application {
 		english_button.setOnAction(e -> {
 			I18N.setLocale(new Locale("en"));
 		});
-
-
 
 		Button albanian_button = new Button("Shqip");
 		albanian_button.setFont(Font.font("Serif", FontWeight.SEMI_BOLD, FontPosture.REGULAR, 12));

@@ -1,12 +1,12 @@
 package home;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import database.DBConnection;
 
-import com.mysql.jdbc.PreparedStatement;
+import database.DBConnection;
 
 public class Addresses {
 
